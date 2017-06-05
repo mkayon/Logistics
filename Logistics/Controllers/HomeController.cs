@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Logistics.Controllers
 {
+    [Authorize]
     public class HomeController : ApplicationBaseController
     {
         public ActionResult TransportationOrder()
@@ -20,7 +21,7 @@ namespace Logistics.Controllers
         {
             return View();
         }
-        [Authorize]
+       
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
