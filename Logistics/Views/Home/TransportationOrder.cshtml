@@ -1,0 +1,131 @@
+﻿@using Logistics.Models.Orders
+@model TransportationOrderViewModel
+@{
+    ViewBag.Title = "TransportationOrder";
+}
+
+<div class="container-fuid body-content tab-content">
+    <div class="row">
+        <!--left side panel-->
+        <div class="col-lg-3">
+            <!--Order summary-->
+            @Html.Partial("OrderSummaryPartial", Model.Summary)
+
+            <div class="panel">
+                <div class="panel-body">
+                    <h4>
+                        <span class="count-icon">
+                            <i class="fa fa-2x fa-comments-o"></i>
+                            <span class="count">@Model.Comments.Count</span>
+                        </span>
+                        <span class="text-primary">Коментарии к заявке</span>
+                    </h4>
+                    <table class="table-hover table-striped table-responsive">
+                        <tbody>
+                            @foreach (var comment in Model.Comments)
+                            {
+                            <tr>
+                                @Html.Partial("OrderCommentPartial",comment)
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="panel">
+                <!--send coment panel-->
+                <div class="panel-body">
+                    @Html.Partial("OrderCommentSendPartial", new OrderCommentViewModel("Xorosho", DateTime.Now, "Loged User from Princial Object"))
+                </div>
+            </div>
+        </div>
+
+        <!--Right part-->
+        <div class="col-md-9">
+            <div class="tabbable-panel">
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs ">
+                        <li class="active">
+                            <a href="#tab_default_1" data-toggle="tab">
+                                <h5 class="text-muted"><i class="fa  fa-dropbox "></i> Информация о грузе</h5>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tab_default_2" data-toggle="tab">
+                                <h5 class="text-muted"><i class="fa fa-check-square-o"></i> Выполненые заявки</h5>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tab_default_3" data-toggle="tab">
+                                <h5 class="text-muted"><i class="fa fa-usd"></i> Оплата и счета</h5>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_default_1">
+                            @foreach (var load in Model.Loads.OrderBy(l => l.LoadOrder))
+                            {
+                                <div>
+                                        <div class="row">
+                                            <div class="col-md-6"><strong class="text-primary">Загрузка @load.LoadOrder</strong></div>
+                                            <div class="col-md-6 text-right">
+                                                <a class="text-right btn" role="button" data-toggle="collapse"
+                                                   aria-expanded="true" aria-controls="C_@load.LoadOrder" href="#C_@load.LoadOrder"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="panel-body collapse in" id="C_@load.LoadOrder">
+                                    @Html.Partial("LoadSummaryPartial", load)
+                                </div>
+                            }
+                            
+                            @foreach (var load in Model.UnLoads.OrderBy(l => l.UnLoadOrder))
+                            {
+                                <div>
+                                        <div class="row">
+                                            <div class="col-md-6"><strong class="text-primary">Разгрузка @load.UnLoadOrder</strong></div>
+                                            <div class="col-md-6 text-right">
+                                                <a class="text-right btn" role="button" data-toggle="collapse"
+                                                   aria-expanded="true" aria-controls="U_@load.UnLoadOrder" href="#U_@load.UnLoadOrder"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                                            </div>
+                                        </div>
+                                    <div class="panel-body collapse" id="U_@load.UnLoadOrder">
+                                        @Html.Partial("UnLoadSummaryPartial", load)
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="tab-pane" id="tab_default_2">
+                            <p>
+                                Howdy, I'm in Tab 2.
+                            </p>
+                            <p>
+                                Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.
+                            </p>
+                            <p>
+                                <a class="btn btn-warning" href="http://j.mp/metronictheme" target="_blank">
+                                    Click for more features...
+                                </a>
+                            </p>
+                        </div>
+                        <div class="tab-pane" id="tab_default_3">
+                            <p>
+                                Howdy, I'm in Tab 3.
+                            </p>
+                            <p>
+                                Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat
+                            </p>
+                            <p>
+                                <a class="btn btn-info" href="http://j.mp/metronictheme" target="_blank">
+                                    Learn more...
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

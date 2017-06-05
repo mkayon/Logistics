@@ -1,0 +1,29 @@
+﻿@model Logistics.Models.Orders.OrderCommentViewModel
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<form class="form-horizontal"> 
+       <div>
+        <div  class="col-lg-12 form-group">
+            @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control", title = "Enter your comment" } })
+            @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div>
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-default" title="Thread"><i class="glyphicon glyphicon-tasks"></i> </button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-default" title="Add User"><i class="glyphicon glyphicon-user"></i> </button>
+        </div>
+
+        <div class="col-lg-8 text-right">
+            <input type="submit" value="Отправить" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+}

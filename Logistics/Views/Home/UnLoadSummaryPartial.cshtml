@@ -1,0 +1,23 @@
+﻿@model Logistics.Models.Load.UnLoadViewModel
+
+<div class="row">
+    <!--Summary-->
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-6 text-muted">Adres Vigruzki</div>
+            <div class="col-md-6">@Html.DisplayFor(model => model.Address)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 text-muted">Plan. Data Pogruzki</div>
+            <div class="col-md-6">@Html.DisplayFor(model => model.PlannedDate) @Html.DisplayFor(model => model.PlannedTime)</div>
+        </div>
+    </div>
+
+    <!--Cargo List-->
+    <div class="col-md-8">
+        @Html.Partial("UnloadedCargoListPartial", Model)
+    </div>
+
+</div>
+
