@@ -18,6 +18,10 @@
     <div class="col-md-8">
         @Html.Partial("UnloadedCargoListPartial", Model)
     </div>
-
+    <div class="row">
+        <div class="col-lg-12" align="center">
+            <h5><i class="fa fa-truck text-primary"></i>&nbspВсего: <b>@Html.DisplayFor(model => Model.TotalWeightKg) кг &nbsp&nbsp @Html.DisplayFor(model => Model.TotalVolumeMCube) m3</b></h5>
+        </div>
+    </div>
 </div>
 
