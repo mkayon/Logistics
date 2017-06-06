@@ -9,30 +9,30 @@
             <div>
                 <span class="label label-info label-as-badge">@Html.DisplayFor(model => model.OrderStatus)</span>
             </div>
-            <h4 class="text-info"><i class="fa fa-truck"></i> Заказчик</h4>
+            <h4 class="text-info1"><i class="fa fa-truck"></i> Заказчик</h4>
             <h5> @Html.DisplayFor(model => model.OrganizationName)</h5>
             <hr />
-            <h4 class="text-info"><i class="fa fa-user"></i> Контактное лицо</h4>
+            <h4 class="text-info1"><i class="fa fa-user"></i> Контактное лицо</h4>
             <h5> @Html.DisplayFor(model => model.ContactPersonName)</h5>
             <h5>@Html.DisplayFor(model => model.ContactPersonPhone)</h5>
             <hr />
-            <h4 class="text-info"><i class="fa fa-money"></i> Сумма по заявке</h4>
+            <h4 class="text-info1"><i class="fa fa-money"></i> Сумма по заявке</h4>
             <h5>Покурсу НБУ на: @Html.DisplayFor(model => model.NbuRateDate)</h5>
             <div class="row">
-                <div class="col-md-2 text-info" style="font-size:18px">USD</div>
+                <div class="col-md-2 text-info1" style="font-size:18px">USD</div>
                 <div class="col-md-2">@Html.DisplayFor(model => model.OrderpPriceUsd)</div>
             </div>
             <div class="row">
-                <div class="col-md-2 text-info" style="font-size:18px">UAH</div>
+                <div class="col-md-2 text-info1" style="font-size:18px">UAH</div>
                 <div class="col-md-2">@Html.DisplayFor(model => model.OrderpPriceUah)</div>
             </div>
             <hr />
             <div class="row">
-                <div class="col-md-8 text-info" style="font-size:18px"><i class="fa fa-file-text"></i> Договор</div>
+                <div class="col-md-8 text-info1" style="font-size:18px"><i class="fa fa-file-text"></i> Договор</div>
                 <div class="col"> @Html.DisplayFor(model => model.ContractNumber)</div>
             </div>
             <div class="row">
-                <div class="col-md-8 text-info" style="font-size:18px"><i class="fa fa-credit-card-alt"></i> Статус оплаты</div>
+                <div class="col-md-8 text-info1" style="font-size:18px"><i class="fa fa-credit-card-alt"></i> Статус оплаты</div>
                 <div class="col"> <span class="label label-danger label-as-badge">@Html.DisplayFor(model => model.PaymentStatus)</span></div>
             </div>
         </div>

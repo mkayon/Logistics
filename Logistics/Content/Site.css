@@ -50,10 +50,11 @@ textarea {
     width: 16px;
 
     background: red;
-    border-radius: 8px;
+    border-radius: 5px;
 
     font-size: 12px;    
     text-align: center;
+    color:white;
 }
 
 i {
@@ -129,3 +130,12 @@ i.fa-comment:after {
 .portlet .tabbable-line > .tab-content {
   padding-bottom: 0;
 }
+
+.text-info1 {
+    color:#5bc0de;
+}
+.navbar-inverse1 {
+    background-color: #337ab7;
+    border-color: #080808;
+}
+
